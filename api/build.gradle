@@ -1,0 +1,24 @@
+apply plugin: 'scala'
+
+jar {
+
+    baseName = 'solar-system-api'
+
+    sourceCompatibility = 1.8
+    targetCompatibility = 1.8
+
+    manifest {
+        attributes("Implementation-Title": baseName,
+                "Built-Date": new Date())
+    }
+}
+
+repositories { mavenCentral() }
+
+dependencies {
+
+    compile project(':model')
+    
+    testCompile('junit:junit:4.12')
+    testCompile('org.scalatest:scalatest_2.12:3.0.5')
+}
